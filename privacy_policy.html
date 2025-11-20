@@ -35,7 +35,10 @@
     </style>
 </head>
 <body>
-    <a href="/" class="back-link">← Back to Website</a>
+	<script>
+		document.write('<a href="' + document.referrer + '" class="back-link">← Back to Website</a>');
+	</script>
+
     
     <div class="container">
         <h1>Privacy Policy</h1>
