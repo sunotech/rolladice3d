@@ -5,22 +5,6 @@
     <link rel="icon" href="/rolladice3d/icon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Roll A Dice 3D</title>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=VITE_GA_PLACEHOLDER"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
-      // Extract GA ID from script tag
-      const gaScript = document.querySelector('script[src*="googletagmanager"]');
-      if (gaScript) {
-        const gaId = gaScript.src.match(/id=([^&]+)/)?.[1];
-        if (gaId && gaId !== 'VITE_GA_PLACEHOLDER') {
-          gtag('js', new Date());
-          gtag('config', gaId);
-        }
-      }
-    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -141,5 +125,15 @@
             </section>
         </div>
     </div>
+    
+    <!-- Google Analytics - Will be injected during build -->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFSKE5N6PW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WFSKE5N6PW');
+    </script>
 </body>
 </html>
