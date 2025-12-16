@@ -5,160 +5,141 @@
     <link rel="icon" href="/rolladice3d/icon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Roll A Dice 3D</title>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=VITE_GA_PLACEHOLDER"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       
-      // Check for GA ID in meta tag or use environment variable placeholder
-      const gaId = document.querySelector('meta[name="ga-id"]')?.content;
-      if (gaId && gaId !== 'PLACEHOLDER') {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
-        document.head.appendChild(script);
-        
-        gtag('js', new Date());
-        gtag('config', gaId);
+      // Extract GA ID from script tag
+      const gaScript = document.querySelector('script[src*="googletagmanager"]');
+      if (gaScript) {
+        const gaId = gaScript.src.match(/id=([^&]+)/)?.[1];
+        if (gaId && gaId !== 'VITE_GA_PLACEHOLDER') {
+          gtag('js', new Date());
+          gtag('config', gaId);
+        }
       }
     </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            background-color: #064e3b;
+            color: #d1fae5;
+            min-height: 100vh;
+            padding: 3rem 1.5rem;
+        }
+        .container {
+            max-width: 48rem;
+            margin: 0 auto;
+            background: rgba(6, 95, 70, 0.4);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(6, 120, 95, 0.5);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6ee7b7;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: #ffffff; }
+        h1 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #047857;
+        }
+        .last-updated {
+            color: #6ee7b7;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+        .content { color: #d1fae5; }
+        .content p { margin-bottom: 1rem; }
+        section { margin-bottom: 1.5rem; }
+        h2 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .content a {
+            color: #6ee7b7;
+            text-decoration: underline;
+        }
+        .content a:hover { color: #ffffff; }
+        ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            color: #d1fae5;
+        }
+        li::marker { color: #34d399; }
+        strong { color: #ffffff; }
+        em { font-style: italic; }
+    </style>
 </head>
 <body>
-    <div id="root"></div>
-    
-    <script type="text/babel" data-type="module">
-      const { useState } = React;
-      
-      function PrivacyPolicy() {
-        return React.createElement('div', {
-          className: "min-h-screen bg-green-950 text-white font-sans py-12 px-6"
-        },
-          React.createElement('div', {
-            className: "container mx-auto max-w-3xl bg-green-900/40 p-8 rounded-2xl border border-green-800/50 backdrop-blur-sm shadow-xl"
-          },
-            React.createElement('a', {
-              href: document.referrer || '/rolladice3d/',
-              className: "flex items-center gap-2 text-green-400 hover:text-white transition-colors mb-8 font-semibold inline-block"
-            }, '← Back to Website'),
-            
-            React.createElement('h1', {
-              className: "text-3xl md:text-4xl font-bold text-white mb-2 border-b border-green-700 pb-4"
-            }, 'Privacy Policy'),
-            
-            React.createElement('p', {
-              className: "text-green-400 mb-8 text-sm"
-            }, 'Last updated: November 20, 2025'),
-            
-            React.createElement('div', {
-              className: "space-y-6 text-green-100 leading-relaxed"
-            },
-              React.createElement('p', null, 'Thank you for playing Roll A Dice 3D. This privacy policy explains how we handle your information.'),
-              
-              React.createElement('section', null,
-                React.createElement('h2', {
-                  className: "text-2xl font-bold text-white mb-3 mt-6"
-                }, 'Privacy by Default'),
-                React.createElement('p', {
-                  className: "text-green-200"
-                }, 
-                  'We believe in minimizing data collection. ',
-                  React.createElement('strong', { className: "text-white" }, 'Roll A Dice 3D'),
-                  ' does not operate its own servers and we do not store your personal data. However, to support the app, we use ',
-                  React.createElement('a', {
-                    href: "#third-party-services",
-                    className: "text-green-400 underline hover:text-white"
-                  }, 'third-party services'),
-                  ' that may collect data. This ensures transparency while clearly stating that ',
-                  React.createElement('em', { className: "italic" }, 'we'),
-                  ' (the developers) are not tracking you personally.'
-                )
-              ),
-              
-              React.createElement('section', null,
-                React.createElement('h2', {
-                  className: "text-2xl font-bold text-white mb-3 mt-6"
-                }, 'Permissions'),
-                React.createElement('p', {
-                  className: "text-green-200"
-                }, 'The app does not request any device permissions beyond basic functionality.')
-              ),
-              
-              React.createElement('section', { id: "third-party-services" },
-                React.createElement('h2', {
-                  className: "text-2xl font-bold text-white mb-3 mt-6"
-                }, 'Third-Party Services'),
-                React.createElement('p', {
-                  className: "text-green-200 mb-2"
-                }, 'To support our development, we use Google AdMob to serve advertisements. This service may collect and use:'),
-                React.createElement('ul', {
-                  className: "list-disc pl-6 space-y-2 text-green-200 marker:text-green-500"
-                },
-                  React.createElement('li', null,
-                    React.createElement('strong', null, 'Device Identifiers:'),
-                    ' Advertising IDs (e.g., IDFA) to serve relevant ads and prevent fraud.'
-                  ),
-                  React.createElement('li', null,
-                    React.createElement('strong', null, 'Location Data:'),
-                    ' Approximate location (via IP address) for geographic ad targeting.'
-                  ),
-                  React.createElement('li', null,
-                    React.createElement('strong', null, 'Usage Data:'),
-                    ' Interaction metrics (clicks, views) and app performance data.'
-                  ),
-                  React.createElement('li', null,
-                    React.createElement('strong', null, 'Cookies/Local Storage:'),
-                    ' Technologies used for frequency capping and ad delivery.'
-                  )
-                ),
-                React.createElement('p', {
-                  className: "text-green-200 mt-2"
-                },
-                  'For more details, please review the ',
-                  React.createElement('a', {
-                    href: "https://policies.google.com/privacy",
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    className: "text-green-400 underline hover:text-white"
-                  }, 'Google Privacy Policy'),
-                  '.'
-                )
-              ),
-              
-              React.createElement('section', null,
-                React.createElement('h2', {
-                  className: "text-2xl font-bold text-white mb-3 mt-6"
-                }, 'Changes To Policy'),
-                React.createElement('p', {
-                  className: "text-green-200"
-                }, 'Any changes to this privacy policy will be posted on this page.')
-              ),
-              
-              React.createElement('section', null,
-                React.createElement('h2', {
-                  className: "text-2xl font-bold text-white mb-3 mt-6"
-                }, 'Contact Us'),
-                React.createElement('p', {
-                  className: "text-green-200"
-                },
-                  'If you have any questions about this Privacy Policy, please contact us via ',
-                  React.createElement('a', {
-                    href: "mailto:ausunotech@gmail.com",
-                    className: "text-green-400 underline hover:text-white"
-                  }, 'email'),
-                  '.'
-                )
-              )
-            )
-          )
-        );
-      }
-      
-      const root = ReactDOM.createRoot(document.getElementById('root'));
-      root.render(React.createElement(PrivacyPolicy));
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Back to Website</a>
+
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: November 20, 2025</p>
+
+        <div class="content">
+            <p>Thank you for playing Roll A Dice 3D. This privacy policy explains how we handle your information.</p>
+
+            <section>
+                <h2>Privacy by Default</h2>
+                <p>
+                    We believe in minimizing data collection. <strong>Roll A Dice 3D</strong> does not operate its own servers and we do not store your personal data. 
+                    However, to support the app, we use <a href="#third-party-services">third-party services</a> that may collect data. 
+                    This ensures transparency while clearly stating that <em>we</em> (the developers) are not tracking you personally.
+                </p>
+            </section>
+
+            <section>
+                <h2>Permissions</h2>
+                <p>The app does not request any device permissions beyond basic functionality.</p>
+            </section>
+
+            <section id="third-party-services">
+                <h2>Third-Party Services</h2>
+                <p>To support our development, we use Google AdMob to serve advertisements. This service may collect and use:</p>
+                <ul>
+                    <li><strong>Device Identifiers:</strong> Advertising IDs (e.g., IDFA) to serve relevant ads and prevent fraud.</li>
+                    <li><strong>Location Data:</strong> Approximate location (via IP address) for geographic ad targeting.</li>
+                    <li><strong>Usage Data:</strong> Interaction metrics (clicks, views) and app performance data.</li>
+                    <li><strong>Cookies/Local Storage:</strong> Technologies used for frequency capping and ad delivery.</li>
+                </ul>
+                <p>
+                    For more details, please review the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+                </p>
+            </section>
+
+            <section>
+                <h2>Changes To Policy</h2>
+                <p>Any changes to this privacy policy will be posted on this page.</p>
+            </section>
+
+            <section>
+                <h2>Contact Us</h2>
+                <p>
+                    If you have any questions about this Privacy Policy, please contact us via <a href="mailto:ausunotech@gmail.com">email</a>.
+                </p>
+            </section>
+        </div>
+    </div>
 </body>
 </html>
